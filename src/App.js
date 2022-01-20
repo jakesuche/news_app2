@@ -16,10 +16,12 @@ function App() {
   const getNewHeadlines2 = () => {
     axios
       .get(
-        "https://api.mediastack.com/v1/news?access_key=ce9626b23d615e59aa2fd9fcac3cd220&limit=100&offset=0&sort=published_desc&country=ni&categories=wars&sources=cnn,bbc"
+        "http://api.mediastack.com/v1/news?access_key=ce9626b23d615e59aa2fd9fcac3cd220&limit=20&offset=0&sort=published_desc&country=ni&category=general&sources=cnn,bbc"
       )
       .then((res) => {
-        console.log(res);
+        console.log(res.data.data);
+        const data = res.data.data
+        setNews(data);
       })
       .catch((err) => {
         console.log(err);
@@ -42,7 +44,7 @@ function App() {
   };
 
   useEffect(() => {
-    getNewHeadlines();
+    // getNewHeadlines();
     getNewHeadlines2()
   }, []);
   return (
@@ -58,41 +60,27 @@ function App() {
                   <h2>Category</h2>
                   <ul className="vertical-menu ">
                     <li>
-                      <a >Politics</a>
+                      <a >General</a>
                     </li>
                     <li>
-                      <a >International</a>
+                      <a >Business</a>
                     </li>
                     <li>
-                      <a >Finance</a>
+                      <a >Entertainment</a>
                     </li>
                     <li>
-                      <a >Health care</a>
+                      <a >Health</a>
                     </li>
                     <li>
                       <a >Technology</a>
                     </li>
                     <li>
-                      <a >Jobs</a>
-                    </li>
-                    <li>
-                      <a >Media</a>
-                    </li>
-                    <li>
-                      <a >Administration</a>
+                      <a >Science</a>
                     </li>
                     <li>
                       <a >Sports</a>
                     </li>
-                    <li>
-                      <a >Game</a>
-                    </li>
-                    <li>
-                      <a >Art</a>
-                    </li>
-                    <li>
-                      <a >Kids</a>
-                    </li>
+                   
                   </ul>
                 </div>
               </div>
@@ -107,14 +95,14 @@ function App() {
                           <div className="position-relative">
                             <div className="rotate-img">
                               <img
-                                src={articl?.urlToImage}
+                                src={articl?.image}
                                 alt="thumb"
                                 className="img-fluid"
                               />
                             </div>
                             <div className="badge-positioned">
                               <span className="badge badge-danger font-weight-bold">
-                                Flash news
+                                {articl?.source}
                               </span>
                             </div>
                           </div>
@@ -125,7 +113,7 @@ function App() {
                           </h2>
                           <div className="fs-13 mb-2">
                             <span className="mr-2">Photo </span>
-                            {fromNow(articl?.publishedAt)}
+                            {fromNow(articl?.published_at)}
                           </div>
                           <p className="mb-0">{articl?.description}</p>
                         </div>

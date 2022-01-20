@@ -16,7 +16,7 @@ function App() {
   const getNewHeadlines2 = () => {
     axios
       .get(
-        "http://api.mediastack.com/v1/news?access_key=ce9626b23d615e59aa2fd9fcac3cd220&limit=100&offset=0&sort=published_desc&country=ni&categories=wars&sources=cnn,bbc"
+        "https://api.mediastack.com/v1/news?access_key=ce9626b23d615e59aa2fd9fcac3cd220&limit=100&offset=0&sort=published_desc&country=ni&categories=wars&sources=cnn,bbc"
       )
       .then((res) => {
         console.log(res);

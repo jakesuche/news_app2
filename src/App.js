@@ -58,40 +58,40 @@ function App() {
                   <h2>Category</h2>
                   <ul className="vertical-menu ">
                     <li>
-                      <a href="#">Politics</a>
+                      <a >Politics</a>
                     </li>
                     <li>
-                      <a href="#">International</a>
+                      <a >International</a>
                     </li>
                     <li>
-                      <a href="#">Finance</a>
+                      <a >Finance</a>
                     </li>
                     <li>
-                      <a href="#">Health care</a>
+                      <a >Health care</a>
                     </li>
                     <li>
-                      <a href="#">Technology</a>
+                      <a >Technology</a>
                     </li>
                     <li>
-                      <a href="#">Jobs</a>
+                      <a >Jobs</a>
                     </li>
                     <li>
-                      <a href="#">Media</a>
+                      <a >Media</a>
                     </li>
                     <li>
-                      <a href="#">Administration</a>
+                      <a >Administration</a>
                     </li>
                     <li>
-                      <a href="#">Sports</a>
+                      <a >Sports</a>
                     </li>
                     <li>
-                      <a href="#">Game</a>
+                      <a >Game</a>
                     </li>
                     <li>
-                      <a href="#">Art</a>
+                      <a >Art</a>
                     </li>
                     <li>
-                      <a href="#">Kids</a>
+                      <a >Kids</a>
                     </li>
                   </ul>
                 </div>

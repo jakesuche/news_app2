@@ -21,21 +21,21 @@ const Header = () => {
                       <a href="#" className="nav-link">Events</a>
                     </li>
                     <li className="nav-item">
-                      <a href="#" className="nav-link">Write for Us</a>
+                      <a  className="nav-link">Write for Us</a>
                     </li>
                     <li className="nav-item">
-                      <a href="#" className="nav-link">In the Press</a>
+                      <a  className="nav-link">In the Press</a>
                     </li>
                   </ul>
                   <ul className="navbar-top-right-menu">
                     <li className="nav-item">
-                      <a href="#" className="nav-link"><i className="mdi mdi-magnify"></i></a>
+                      <a  className="nav-link"><i className="mdi mdi-magnify"></i></a>
                     </li>
                     <li className="nav-item">
-                      <a href="#" className="nav-link">Login</a>
+                      <a  className="nav-link">Login</a>
                     </li>
                     <li className="nav-item">
-                      <a href="#" className="nav-link">Sign in</a>
+                      <a  className="nav-link">Sign in</a>
                     </li>
                   </ul>
                 </div>

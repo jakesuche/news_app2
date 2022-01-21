@@ -1,4 +1,4 @@
-import "./assets/css/boostrap.css";
+import "./assets/css/boostrap.min.css";
 import Header from "./components/Header/index.jsx";
 import SubHeader from "./components/subHeader";
 import HomePage from "./pages/index";

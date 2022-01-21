@@ -1,6 +1,5 @@
 import { useState, useEffect, useContext } from "react";
 
-import "../assets/css/boostrap.css";
 import { applyFilters } from "../utils/helper";
 
 import moment from "moment";

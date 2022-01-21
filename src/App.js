@@ -1,196 +1,34 @@
-import { useState, useEffect } from "react";
-
-import "./App.css";
-import "./assets/css/styles.css";
-// import Header from '../src/components/Header/index'
+import "./assets/css/boostrap.css";
 import Header from "./components/Header/index.jsx";
 import SubHeader from "./components/subHeader";
-import moment from "moment";
-import axios from "axios";
-const fromNow = (value) => {
-  if (!value) return "";
-  return moment(value).fromNow();
-};
+import HomePage from "./pages/index";
+import NewDetail from "./pages/news_details";
+import { useHistory, withRouter } from "react-router-dom";
+import NewsState from "./context/NewContext";
+
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+const history = useHistory;
 function App() {
-  const [news, setNews] = useState([]);
-  const getNewHeadlines2 = () => {
-    axios
-      .get(
-        "http://api.mediastack.com/v1/news?access_key=ce9626b23d615e59aa2fd9fcac3cd220&limit=20&offset=0&sort=published_desc&country=ni&category=general&sources=cnn,bbc"
-      )
-      .then((res) => {
-        console.log(res.data.data);
-        const data = res.data.data
-        setNews(data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-  const getNewHeadlines = () => {
-    axios
-      .get(
-        "https://newsapi.org/v2/top-headlines?country=ng&category=entertainment&apiKey=de02f70a9e814ad493b024e4761f91ad"
-      )
-      .then((res) => {
-        
-        if (res.data.status === "ok") {
-          setNews(res.data.articles);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  useEffect(() => {
-    // getNewHeadlines();
-    getNewHeadlines2()
-  }, []);
   return (
-    <div className="App">
-      <Header />
-      <SubHeader />
-      <div className="content-wrapper">
-        <div className="container">
-          <div className="row aos-init aos-animate" data-aos="fade-up">
-            <div className="col-lg-3 stretch-card grid-margin">
-              <div className="card">
-                <div className="card-body text-left">
-                  <h2>Category</h2>
-                  <ul className="vertical-menu ">
-                    <li>
-                      <a >General</a>
-                    </li>
-                    <li>
-                      <a >Business</a>
-                    </li>
-                    <li>
-                      <a >Entertainment</a>
-                    </li>
-                    <li>
-                      <a >Health</a>
-                    </li>
-                    <li>
-                      <a >Technology</a>
-                    </li>
-                    <li>
-                      <a >Science</a>
-                    </li>
-                    <li>
-                      <a >Sports</a>
-                    </li>
-                   
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-9 stretch-card grid-margin">
-              <div className="card">
-                <div className="card-body text-left">
-                  {news?.map((articl, i) => {
-                    return (
-                      <div key={i} className="row">
-                        <div className="col-sm-4 grid-margin">
-                          <div className="position-relative">
-                            <div className="rotate-img">
-                              <img
-                                src={articl?.image}
-                                alt="thumb"
-                                className="img-fluid"
-                              />
-                            </div>
-                            <div className="badge-positioned">
-                              <span className="badge badge-danger font-weight-bold">
-                                {articl?.source}
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="col-sm-8  grid-margin">
-                          <h2 className="mb-2 font-weight-600">
-                            {articl?.title}
-                          </h2>
-                          <div className="fs-13 mb-2">
-                            <span className="mr-2">Photo </span>
-                            {fromNow(articl?.published_at)}
-                          </div>
-                          <p className="mb-0">{articl?.description}</p>
-                        </div>
-                      </div>
-                    );
-                  })}
-
-                  <div className="row">
-                    <div className="col-sm-4 grid-margin">
-                      <div className="position-relative">
-                        <div className="rotate-img">
-                          <img
-                            src="assets/images/dashboard/home_5.jpg"
-                            alt="thumb"
-                            className="img-fluid"
-                          />
-                        </div>
-                        <div className="badge-positioned">
-                          <span className="badge badge-danger font-weight-bold">
-                            Flash news
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-sm-8  grid-margin">
-                      <h2 className="mb-2 font-weight-600">
-                        No charges over 2017 Conservative battle bus cases
-                      </h2>
-                      <div className="fs-13 mb-2">
-                        <span className="mr-2">Photo </span>10 Minutes ago
-                      </div>
-                      <p className="mb-0">
-                        Lorem Ipsum has been the industry's standard dummy text
-                        ever since the 1500s, when an
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="row">
-                    <div className="col-sm-4">
-                      <div className="position-relative">
-                        <div className="rotate-img">
-                          <img
-                            src="assets/images/dashboard/home_6.jpg"
-                            alt="thumb"
-                            className="img-fluid"
-                          />
-                        </div>
-                        <div className="badge-positioned">
-                          <span className="badge badge-danger font-weight-bold">
-                            Flash news
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-sm-8">
-                      <h2 className="mb-2 font-weight-600">
-                        Kaine: Trump Jr. may have committed treason
-                      </h2>
-                      <div className="fs-13 mb-2">
-                        <span className="mr-2">Photo </span>10 Minutes ago
-                      </div>
-                      <p className="mb-0">
-                        Lorem Ipsum has been the industry's standard dummy text
-                        ever since the 1500s, when an
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <NewsState>
+      <Router>
+        
+          <Header />
+          <SubHeader />
+          <Switch>
+            <Route exact path="/">
+              <HomePage />
+            </Route>
+            <Route
+              component={NewDetail}
+              exact
+              path="/details/:title"
+            />
+          </Switch>
+      
+      </Router>
+    </NewsState>
   );
 }
 
 export default App;
-

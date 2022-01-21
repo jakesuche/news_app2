@@ -14,8 +14,8 @@ const SubHeader = () => {
             <div className="d-flex align-items-center">
               <span className="badge badge-dark mr-3">Flash news</span>
               <p className="mb-0">
-                Lorem Ipsum has been the industry's standard dummy text ever
-                since the 1500s.
+                Velsta has been the industry's standard dummy text ever
+                since the 2022.
               </p>
             </div>
             <div className="d-flex">
